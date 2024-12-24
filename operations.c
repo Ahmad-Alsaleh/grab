@@ -53,3 +53,18 @@ unsigned long str_len(const char *str)
             return i;
     return 0;
 }
+
+void copy_str(const char *from, char *to)
+{
+    for (const char *p = from; *p; ++p)
+        *to++ = *p;
+    *to = '\0';
+}
+
+unsigned long int ascii_to_number(const char *str)
+{
+    unsigned long int number = 0;
+    for (const char *p = str; *p; ++p)
+        number = number * 10 + (*p - '0');
+    return number;
+}
