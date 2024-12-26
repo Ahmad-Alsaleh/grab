@@ -25,8 +25,9 @@ int main(int argc, char *argv[])
 
     copy_str("GET / HTTP/1.1\r\nHost: ", http_request);
     copy_str(host_name, http_request + sizeof("GET / HTTP/1.1\r\nHost: ") - 1);
-    copy_str("\r\nConnection: close\r\nUser-Agent: curl/7.68.0\r\n\r\n",
-             http_request + str_len("GET / HTTP/1.1\r\nHost: ") + str_len(host_name));
+    copy_str(
+        "\r\nConnection: close\r\nUser-Agent: curl/7.68.0\r\n\r\n",
+        http_request + str_len("GET / HTTP/1.1\r\nHost: ") + str_len(host_name));
 
     printf("\nCreating socket...\n");
     Socket sock = socket();
