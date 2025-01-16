@@ -32,7 +32,7 @@ unsigned int parse_ip_address(const char *addr)
     return ip_address;
 }
 
-bool _is_big_endian(unsigned short int number)
+bool _is_big_endian()
 {
     unsigned short two_bytes = 0x0001;
     char *first_byte = (char *)&two_bytes;
@@ -41,7 +41,7 @@ bool _is_big_endian(unsigned short int number)
 
 unsigned short int parse_port(unsigned short int port)
 {
-    if (_is_big_endian(port))
+    if (_is_big_endian())
         return port;
     return (port >> 8) | (port << 8);
 }
